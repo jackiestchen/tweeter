@@ -1,0 +1,31 @@
+nav {
+  display: flex;
+  height: 120px;
+  width: auto;
+  background-color: #4056A1;
+  color: #FFFF;
+  justify-content: space-between;
+
+}
+
+#logo {
+  display: flex;
+  align-items: end;
+  font-family: "Bungee", sans-serif;
+  margin-left: 1.5em;
+  margin-bottom: 0.25em;
+  font-size: xxx-large;
+}
+
+#tweet {
+  display: flex;
+  margin-right: 1.5em;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+#angles-down-icon {
+  color: red;
+}

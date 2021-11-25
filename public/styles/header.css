@@ -1,0 +1,20 @@
+.container {
+  position: relative;
+  width: auto;
+}
+.nav {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9;
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: 100%;  
+  background:chartreuse;
+}
