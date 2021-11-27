@@ -5,13 +5,19 @@
     <title>Tweeter - Home Page</title>
 
     <!-- External CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
-    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      type="text/css"
+    />
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- MDB
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.0/mdb.min.css" rel="stylesheet"/> -->
@@ -20,13 +26,13 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
     <!-- Nav CSS -->
-    <link rel="stylesheet" href="/styles/nav.css" type="text/css"/>
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
 
     <!-- Header CSS -->
-    <link rel="stylesheet" href="/styles/header.css" type="text/css"/>
+    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
 
     <!-- New Tweet CSS -->
-    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css"/>
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -34,53 +40,67 @@
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
 
+    <!-- Composer-Character-Counter -->
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+
     <!-- CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <!-- Font Awesome Icons
     <script src="https://kit.fontawesome.com/e55d60ae40.js" crossorigin="anonymous"></script> -->
-
-
   </head>
 
   <body>
     <!-- Top nav bar (fixed) -->
     <div class="container-head">
-    <nav class="nav">
-      <div id="logo">
-        <span>tweeter</span>
-      </div>
-      <div id="tweet">
-        <br>
-        <span><b>Write</b> a new tweet</span>
-        <span><i class="fa-solid fa-angles-down" id="angles-down-icon"></i></span>
-      </div>
-    </nav>
-    <header class="header">
-      <div id="profile-picture">
-          <img src="/images/profile-hex.png">           
-      </div>
-      <div>
+      <nav class="nav">
+        <div id="logo">
+          <span>tweeter</span>
+        </div>
+        <div id="tweet">
+          <br />
+          <span>
+            <b>Write</b>
+            a new tweet
+          </span>
+          <span>
+            <i class="fa-solid fa-angles-down" id="angles-down-icon"></i>
+          </span>
+        </div>
+      </nav>
+      <header class="header">
+        <div id="profile-picture">
+          <img src="/images/profile-hex.png" />
+        </div>
+        <div>
           <h2>Amy Mansell</h2>
-      </div>
-
-  </header>
-  </div>  
+        </div>
+      </header>
+    </div>
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <form action="/tweets" method="POST">
           <label for="tweet-text"><b>What are you humming about?</b></label>
-          <textarea name="text" id="tweet-text" class="md-textarea form-control"></textarea>
+          <textarea
+            name="text"
+            id="tweet-text"
+            class="md-textarea form-control"
+          ></textarea>
           <div>
             <button type="submit"><b>Tweet</b></button>
-            <output name="counter" class="counter" for="tweet-text"><b>140</b></output>
+            <output name="counter" class="counter" for="tweet-text">
+              <b>140</b>
+            </output>
           </div>
         </form>
       </section>
     </main>
-
-
   </body>
-
 </html>
