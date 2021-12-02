@@ -3,30 +3,30 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-const data = [
-  {
-    user: {
-      name: "Newton",
-      avatars: "https://i.imgur.com/73hZDYK.png",
-      handle: "@SirIsaac",
-    },
-    content: {
-      text: "If I have seen further it is by standing on the shoulders of giants",
-    },
-    created_at: 1461116232227,
-  },
-  {
-    user: {
-      name: "Descartes",
-      avatars: "https://i.imgur.com/nlhLi3I.png",
-      handle: "@rd",
-    },
-    content: {
-      text: "Je pense , donc je suis",
-    },
-    created_at: 1461113959088,
-  },
-];
+// const data = [
+//   {
+//     user: {
+//       name: "Newton",
+//       avatars: "https://i.imgur.com/73hZDYK.png",
+//       handle: "@SirIsaac",
+//     },
+//     content: {
+//       text: "If I have seen further it is by standing on the shoulders of giants",
+//     },
+//     created_at: 1461116232227,
+//   },
+//   {
+//     user: {
+//       name: "Descartes",
+//       avatars: "https://i.imgur.com/nlhLi3I.png",
+//       handle: "@rd",
+//     },
+//     content: {
+//       text: "Je pense , donc je suis",
+//     },
+//     created_at: 1461113959088,
+//   },
+// ];
 
 const createTweetElement = (object) => {
   let $tweet = `
@@ -57,7 +57,6 @@ const createTweetElement = (object) => {
 const renderTweets = (tweets) => {
   for (const el of tweets) {
     let $tweet = createTweetElement(el);
-    console.log($tweet);
     $(".tweet-container").append($tweet);
   }
 };
@@ -71,7 +70,7 @@ const getTime = (created) => {
   let units = "";
   if (time > 1000 * 60 * 60 * 24 * 365) {
     humanTime = parseInt(time / (1000 * 60 * 60 * 24 * 365), 10);
-    units = "Years";
+    units = "years";
   } else if (time > 1000 * 60 * 60 * 24 * 30) {
     humanTime = parseInt(time / (1000 * 60 * 60 * 24 * 30), 10);
     units = "months";
@@ -92,4 +91,31 @@ const getTime = (created) => {
   return `${humanTime} ${units} ago`;
 };
 
-renderTweets(data);
+// renderTweets(data);
+
+$("#new-tweet-form").submit(function (event) {
+  const data = $(this).serialize();
+  console.log(data);
+  $.ajax({
+    type: "POST",
+    url: "/tweets",
+    data,
+  });
+  event.preventDefault();
+});
+
+$(document).ready(function () {
+  const loadTweets = function () {
+    let output = [];
+    $.ajax({
+      url: "/tweets",
+      type: "GET",
+      // dataType: "JSON",
+      success: function (response) {
+        renderTweets(response);
+      },
+    });
+  };
+
+  loadTweets();
+});
