@@ -14,7 +14,7 @@
   background-color: #f4f1ec;
   outline: 0;
   border-width: 0 0 2px;
-  border-color: sienna;
+  border-color: initial;
   resize: none;
 }
 
