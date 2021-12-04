@@ -87,12 +87,21 @@
           <img src="/images/profile-hex.png" />
         </div>
         <div class="username">
-          <h2><span><b>Amy</b></span> Mansell</h2>
+          <h2>
+            <span><b>Amy</b></span> Mansell
+          </h2>
         </div>
       </header>
     </div>
     <!-- Page-specific (main) content here -->
     <main class="container">
+      <section class="tweet-error">
+        <div class="message">
+          <i class="fas fa-exclamation-triangle"></i>
+          <span>Invalid Tweet!</span>
+          <i class="fas fa-exclamation-triangle"></i>
+        </div>
+      </section>
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <form action="/tweets" method="POST" id="new-tweet-form">

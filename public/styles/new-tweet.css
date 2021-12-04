@@ -32,3 +32,18 @@
 .tweet-body {
   word-break: break-word;
 }
+
+.tweet-error .message {
+  margin-top: 1em;
+  padding: 1em;
+  border: 3px solid red;
+  color: red;
+}
+
+/* .tweet-error .message span {
+  display: flex;
+  margin: 0 1em 0 1em;
+  flex-direction: row;
+  align-items: center;
+}
+ */

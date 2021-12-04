@@ -12,4 +12,5 @@ $(document).ready(function () {
       output.css("color", "initial").text(charRemaining);
     }
   });
+
 });

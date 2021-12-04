@@ -49,6 +49,9 @@ const loadTweets = function () {
   });
 };
 
+const tweetMessage = $(".tweet-error");
+tweetMessage.hide();
+
 $("#new-tweet-form").submit(function (event) {
   event.preventDefault();
   const data = $(this).serialize();
@@ -62,7 +65,7 @@ $("#new-tweet-form").submit(function (event) {
           renderTweets(tweet[tweet.length - 1]);
         })
         .then(() => {
-          tweetTextarea.val("");
+          tweetTextarea.val("").change();
         });
     },
   });
@@ -74,10 +77,16 @@ $("#tweet-submit-button").click(function (event) {
   // event.preventDefault();
   const length = tweetTextarea.val().length;
   if (length > 140) {
-    return alert("Tweet exceeded character limit!");
-  }
-  if (length < 1) {
-    return alert("Empty tweet! Please input!");
+    $(".tweet-error .message span").text("Text must be less than or equal to 140 characters!");
+    tweetMessage.show();
+    $(this).removeAttr("type").attr("type", "button");
+  } else if (length < 1) {
+    $(".tweet-error .message span").text("Text must be not be empty!")
+    tweetMessage.show();
+    $(this).removeAttr("type").attr("type", "button");
+  } else {
+    $(this).removeAttr("type").attr("type", "submit");
+    tweetMessage.hide();
   }
 });
 
