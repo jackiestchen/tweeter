@@ -5,10 +5,10 @@
  */
 
 const escape = (str) => {
-  let div = document.createElement('div');
+  let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
-}
+};
 
 const createTweetElement = (object) => {
   let $tweet = `
@@ -45,8 +45,8 @@ const loadTweets = function () {
   $.get("/tweets").then((tweets) => {
     tweets.forEach((tweet) => {
       renderTweets(tweet);
-    })
-  })
+    });
+  });
 };
 
 $("#new-tweet-form").submit(function (event) {
@@ -56,14 +56,16 @@ $("#new-tweet-form").submit(function (event) {
     type: "POST",
     url: "/tweets",
     data,
-    success: function(){
-      $.get("/tweets").then((tweet) =>{
-        renderTweets(tweet[tweet.length-1]);
-      }).then(() => {
-        tweetTextarea.val("");
-      })
-    }
-  })
+    success: function () {
+      $.get("/tweets")
+        .then((tweet) => {
+          renderTweets(tweet[tweet.length - 1]);
+        })
+        .then(() => {
+          tweetTextarea.val("");
+        });
+    },
+  });
 });
 
 const tweetTextarea = $(".new-tweet form textarea");
@@ -77,11 +79,8 @@ $("#tweet-submit-button").click(function (event) {
   if (length < 1) {
     return alert("Empty tweet! Please input!");
   }
-
 });
 
 $(document).ready(function () {
   loadTweets();
 });
-
-
