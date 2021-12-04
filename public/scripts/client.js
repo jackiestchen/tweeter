@@ -4,6 +4,12 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+const escape = (str) => {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
 const createTweetElement = (object) => {
   let $tweet = `
   <article class="tweet-article">
@@ -15,7 +21,7 @@ const createTweetElement = (object) => {
           <div class="tweet-name">${object.user.handle}</div>
         </header>
         <p class="tweet-body">
-          ${object.content.text}
+          ${escape(object.content.text)}
         </p>
         <footer>
           <div class="last-tweet-day">${timeago.format(object.created_at)}</div>
@@ -30,35 +36,52 @@ const createTweetElement = (object) => {
   return $tweet;
 };
 
-const renderTweets = (tweets) => {
-  for (const el of tweets) {
-    let $tweet = createTweetElement(el);
-    $(".tweet-container").prepend($tweet);
-  }
+const renderTweets = (tweet) => {
+  let $tweet = createTweetElement(tweet);
+  $(".tweet-container").prepend($tweet);
+};
+
+const loadTweets = function () {
+  $.get("/tweets").then((tweets) => {
+    tweets.forEach((tweet) => {
+      renderTweets(tweet);
+    })
+  })
 };
 
 $("#new-tweet-form").submit(function (event) {
+  event.preventDefault();
   const data = $(this).serialize();
-  console.log(data);
   $.ajax({
     type: "POST",
     url: "/tweets",
     data,
-  });
-  event.preventDefault();
+    success: function(){
+      $.get("/tweets").then((tweet) =>{
+        renderTweets(tweet[tweet.length-1]);
+      }).then(() => {
+        tweetTextarea.val("");
+      })
+    }
+  })
+});
+
+const tweetTextarea = $(".new-tweet form textarea");
+
+$("#tweet-submit-button").click(function (event) {
+  // event.preventDefault();
+  const length = tweetTextarea.val().length;
+  if (length > 140) {
+    return alert("Tweet exceeded character limit!");
+  }
+  if (length < 1) {
+    return alert("Empty tweet! Please input!");
+  }
+
 });
 
 $(document).ready(function () {
-  const loadTweets = function () {
-    let output = [];
-    $.ajax({
-      url: "/tweets",
-      type: "GET",
-      success: function (response) {
-        renderTweets(response);
-      },
-    });
-  };
-
   loadTweets();
 });
+
+

@@ -11,7 +11,7 @@
   height: 520px;
   width: 100%;
   background-color: #c2a800;
-  background-image: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 .nav {
@@ -20,4 +20,7 @@
   top: 0;
   left: 0;
   z-index: 9;
+}
+.header .username h2 {
+  font-weight: normal;
 }

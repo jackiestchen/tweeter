@@ -1,11 +1,9 @@
 .new-tweet {
   display: flex;
   flex-flow: column wrap;
-  /* margin: 0.25em; */
 }
 
 .new-tweet form {
-  /* position: relative; */
   display: flex;
   flex-flow: column;
 }
@@ -27,7 +25,10 @@
 
 .new-tweet div button {
   background-color: #4056a1;
-  /* font-family: "Bungee", sans-serif; */
   color: #ffff;
   border-color: #4056a1;
+}
+
+.tweet-body {
+  word-break: break-word;
 }
