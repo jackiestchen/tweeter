@@ -50,6 +50,7 @@ const loadTweets = function () {
 };
 
 const tweetMessage = $(".tweet-error");
+const tweetErrorText = $(".tweet-error .message span");
 tweetMessage.hide();
 
 $("#new-tweet-form").submit(function (event) {
@@ -74,14 +75,14 @@ $("#new-tweet-form").submit(function (event) {
 const tweetTextarea = $(".new-tweet form textarea");
 
 $("#tweet-submit-button").click(function (event) {
-  // event.preventDefault();
+  event.preventDefault();
   const length = tweetTextarea.val().length;
   if (length > 140) {
-    $(".tweet-error .message span").text("Text must be less than or equal to 140 characters!");
+    tweetErrorText.text("Text must be less than or equal to 140 characters!");
     tweetMessage.show();
     $(this).removeAttr("type").attr("type", "button");
   } else if (length < 1) {
-    $(".tweet-error .message span").text("Text must be not be empty!")
+    tweetErrorText.text("Text must be not be empty!");
     tweetMessage.show();
     $(this).removeAttr("type").attr("type", "button");
   } else {
