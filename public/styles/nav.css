@@ -1,10 +1,14 @@
 nav {
   display: flex;
   height: 120px;
-  width: auto;
-  background-color: #4056a1;
+  background-color: #c2a800;
   color: #ffff;
   justify-content: space-between;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
 }
 
 #logo {
@@ -13,7 +17,7 @@ nav {
   font-family: 'Bungee', sans-serif;
   margin-left: 1.5em;
   margin-bottom: 0.25em;
-  font-size: xxx-large;
+  font-size: larger;
 }
 
 #tweet {
