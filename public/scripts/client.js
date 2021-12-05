@@ -86,7 +86,7 @@ $("#tweet-submit-button").click(function (event) {
     tweetMessage.show();
     $(this).removeAttr("type").attr("type", "button");
   } else {
-    $(this).removeAttr("type").attr("type", "submit");
+    $(this).submit();
     tweetMessage.hide();
   }
 });

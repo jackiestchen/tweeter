@@ -27,8 +27,18 @@ nav {
 
 #angles-down-icon {
   color: red;
+  position: relative;
+  animation-name: arrow-down;
+  animation-duration: 1.25s;
+  animation-iteration-count: infinite;
 }
 
 .main { 
-  margin-top: 120px;
+  margin-top: 120px;  
+}
+
+@keyframes arrow-down {
+  0% {top: 0px;}
+  50% {top: 5px;}
+  100% {top: 0px;}
 }
