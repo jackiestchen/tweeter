@@ -56,40 +56,38 @@ tweetMessage.hide();
 $("#new-tweet-form").submit(function (event) {
   event.preventDefault();
   const data = $(this).serialize();
-  $.ajax({
-    type: "POST",
-    url: "/tweets",
-    data,
-    success: function () {
-      $.get("/tweets")
-        .then((tweet) => {
-          renderTweets(tweet[tweet.length - 1]);
-        })
-        .then(() => {
-          tweetTextarea.val("").change();
-        });
-    },
-  });
+  const length = $.trim(tweetTextarea.val()).length;
+
+  if (length > 140) {
+    tweetErrorText.text("Text must be less than or equal to 140 characters!");
+    tweetMessage.slideDown("fast");
+    $("#tweet-submit-button").addClass('button-error');
+  } else if (length < 1) {
+    tweetErrorText.text("Text must be not be empty!");
+    tweetMessage.slideDown("fast");
+    $("#tweet-submit-button").addClass('button-error');
+  } else {
+    $.ajax({
+      type: "POST",
+      url: "/tweets",
+      data,
+      success: function () {
+        $.get("/tweets")
+          .then((tweet) => {
+            renderTweets(tweet[tweet.length - 1]);
+          })
+          .then(() => {
+            tweetTextarea.val("").change();
+          });
+      },
+    });
+    tweetMessage.hide();
+    $("#tweet-submit-button").removeClass('button-error');
+
+  }
 });
 
 const tweetTextarea = $(".new-tweet form textarea");
-
-$("#tweet-submit-button").click(function (event) {
-  event.preventDefault();
-  const length = tweetTextarea.val().length;
-  if (length > 140) {
-    tweetErrorText.text("Text must be less than or equal to 140 characters!");
-    tweetMessage.show();
-    $(this).removeAttr("type").attr("type", "button");
-  } else if (length < 1) {
-    tweetErrorText.text("Text must be not be empty!");
-    tweetMessage.show();
-    $(this).removeAttr("type").attr("type", "button");
-  } else {
-    $(this).submit();
-    tweetMessage.hide();
-  }
-});
 
 $(document).ready(function () {
   loadTweets();
