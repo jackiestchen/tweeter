@@ -23,10 +23,10 @@
   margin-top: 0.5em;
 }
 
-.new-tweet div button {
+#tweet-submit-button {
   background-color: #4056a1;
   color: #ffff;
-  border-color: #4056a1;
+  border: 0;
 }
 
 .tweet-body {
@@ -38,4 +38,12 @@
   padding: 1em;
   border: 3px solid red;
   color: red;
+}
+
+#tweet-submit-button:active {
+  transform: translateY(4px);
+}
+
+.button-error {
+  box-shadow: 0 0 20px red;
 }
