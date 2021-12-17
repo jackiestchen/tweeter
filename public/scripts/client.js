@@ -81,7 +81,7 @@ $("#new-tweet-form").submit(function (event) {
           });
       },
     });
-    tweetMessage.hide();
+    tweetMessage.slideUp("fast");
     $("#tweet-submit-button").removeClass('button-error');
 
   }

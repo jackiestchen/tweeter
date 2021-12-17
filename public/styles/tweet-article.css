@@ -47,10 +47,10 @@
 .tweet-article footer {
   display: flex;
   border-top: solid;
-  margin: 0.5rem;
-  padding: 0.5rem 1rem;
+  margin: 1em;
+  padding-top: 0.5em;
   justify-content: space-between;
-  font-size: small;
+  font-size: smaller;
 }
 .tweet-icons i {
   margin: 0 0.5em;
