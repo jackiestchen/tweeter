@@ -1,6 +1,7 @@
 # Tweeter Project
 
 Tweeter is a simple, single-page Twitter clone.
+
 The goal is to demonstrate single-page application by showing tweets being submitted and updated.
 Page is updated using JQuery and 
 
