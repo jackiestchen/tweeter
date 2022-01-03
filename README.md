@@ -7,8 +7,10 @@ Page is updated using JQuery and
 ## Final Product
 
 ### Front Page (Desktop View)
+!["Desktop View"](https://github.com/jackiestchen/tweeter/blob/0bbd988837980807be6b2fe3e144bae464cb12d2/public/images/desktop-view-screenshot.png)
 
 ### Front Page (Mobile View)
+!["Mobile View"](https://github.com/jackiestchen/tweeter/blob/0bbd988837980807be6b2fe3e144bae464cb12d2/public/images/mobile-view-screenshot.png)
 
 
 ## Getting Started
